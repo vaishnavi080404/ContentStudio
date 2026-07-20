@@ -3,7 +3,7 @@
 A browser-based design editor built from scratch — — drag shapes, add text, upload images, generate a whole design with AI, and export it.
 
 
-🔗 [Live demo](#https://content-studio-next.vercel.app/) 
+🔗 [Live demo](https://content-studio-next.vercel.app/) 
 - 🎨 [What it looks like] ![alt text](image-3.png)
 
 ## Why I built this
