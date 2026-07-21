@@ -451,7 +451,9 @@ export default function AIGenerateModal({ template, onConfirm, onCancel }) {
                       {field.label}
                     </label>
                     <label className="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-gray-200 rounded-lg cursor-pointer hover:border-violet-400 hover:bg-violet-50 transition-colors">
+                      
                       {imagePreview ? (
+                        //eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={imagePreview}
                           className="h-full object-contain p-2"

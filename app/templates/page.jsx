@@ -17,7 +17,7 @@ const tabs = [
   { value: "invitation", label: "Invitation Card" },
 ];
 
-const page = () => {
+const Page = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [showAIModal, setShowAIModal] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -61,8 +61,8 @@ const page = () => {
                 onClick={() => setActiveTab(tab.value)}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                   activeTab === tab.value
-                    ? "bg-violet-600 text-white shadow-lg shadow-violet-900/40"
-                    : "text-neutral-500 hover:text-neutral-300 bg-white/5 hover:bg-white/8 border border-white/5"
+                    ? "bg-violet-600 text-white shadow-lg border border-violet-50 shadow-violet-900/40"
+                    : "text-neutral-500   hover:text-neutral-300 bg-white/5 hover:bg-white/8 border border-white/5 hover:border-white"
                 }`}
               >
                 {tab.label}
@@ -86,6 +86,7 @@ const page = () => {
                   className="relative overflow-hidden"
                   style={{ aspectRatio: "16/9" }}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   {template.thumbnail ? (
                     <img
                       src={template.thumbnail}
@@ -190,4 +191,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

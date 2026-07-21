@@ -7,11 +7,7 @@ const MyDesigns = () => {
   const [designs, setDesigns] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchDesigns();
-  }, []);
-
-  const fetchDesigns = async () => {
+ const fetchDesigns = async () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -30,6 +26,14 @@ const MyDesigns = () => {
     setLoading(false);
   };
 
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchDesigns();
+  }, []);
+
+ 
+
   return (
     <div className="h-screen flex overflow-hidden bg-[#0d0d14]">
       <Sidebar />
@@ -44,7 +48,7 @@ const MyDesigns = () => {
             My Designs
           </h1>
           <p className="text-sm text-neutral-500 mt-1">
-            Everything you've created, saved and ready to pick back up.
+            Everything you&apos;ve created, saved and ready to pick back up.
           </p>
         </div>
 
@@ -93,7 +97,7 @@ const MyDesigns = () => {
                     hover:-translate-y-1 hover:border-violet-500/40
                     hover:shadow-[0_8px_32px_rgba(124,92,255,0.2)]"
                 >
-                  {/* thumbnail area */}
+                 {/* eslint-disable-next-line @next/next/no-img-element */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
                     <img
                       src={design.thumbnail}

@@ -66,7 +66,7 @@ export default function SettingsPage() {
   const handleDeleteAccount = async () => {
     setBusy(true);
     // the route verifies who's calling from the session cookie itself —
-    // we don't send a user id, it can't be spoofed
+    // we do not send a user id, it cannot be spoofed
     const res = await fetch("/api/account/delete", { method: "POST" });
     const result = await res.json();
 
@@ -189,7 +189,7 @@ export default function SettingsPage() {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-medium text-neutral-200">Delete all designs</p>
-                <p className="text-xs text-neutral-500 mt-0.5">Removes every design you've saved. Cannot be undone.</p>
+                <p className="text-xs text-neutral-500 mt-0.5">Removes every design you have saved. Cannot be undone.</p>
               </div>
 
               <AnimatePresence mode="wait" initial={false}>
