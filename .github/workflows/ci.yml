@@ -14,14 +14,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22  # Updated to 22 to fix the Supabase warning
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Lint (Style Check)
+      - name: Run Lint
         run: npm run lint
 
-      - name: Run Build (Safety Check)
+      - name: Run Build
+        # This part tells the build to use the secrets you just added to GitHub
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_PUBLISH_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISH_KEY }}
+          NEXT_GEMINI_API_KEY: ${{ secrets.NEXT_GEMINI_API_KEY }} 
         run: npm run build
