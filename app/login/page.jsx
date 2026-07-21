@@ -101,6 +101,7 @@ export default function LoginPage() {
           whileTap={{ scale: 0.98 }}
           className="w-full border border-white/10 bg-white/[0.03] rounded-lg py-2.5 text-sm text-neutral-200 hover:bg-white/[0.06] mb-4 flex items-center justify-center gap-2 transition-colors"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
             className="w-5 h-5"

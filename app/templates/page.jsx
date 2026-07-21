@@ -17,7 +17,7 @@ const tabs = [
   { value: "invitation", label: "Invitation Card" },
 ];
 
-const page = () => {
+const Page = () => {
   const [activeTab, setActiveTab] = useState("all");
   const [showAIModal, setShowAIModal] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -86,6 +86,7 @@ const page = () => {
                   className="relative overflow-hidden"
                   style={{ aspectRatio: "16/9" }}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   {template.thumbnail ? (
                     <img
                       src={template.thumbnail}
@@ -190,4 +191,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

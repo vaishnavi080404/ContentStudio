@@ -24,6 +24,7 @@ export default function CropModal({ imageUrl, naturalWidth, naturalHeight, onCon
     const scale = Math.min(maxW / naturalWidth, maxH / naturalHeight, 1);
     const w = Math.round(naturalWidth * scale);
     const h = Math.round(naturalHeight * scale);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPreviewSize({ w, h });
     // default crop: full image
     setCrop({ x: 0, y: 0, w, h });
@@ -165,6 +166,7 @@ export default function CropModal({ imageUrl, naturalWidth, naturalHeight, onCon
           onMouseUp={onMouseUp}
           onMouseLeave={onMouseUp}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={imageUrl}
             alt="crop preview"

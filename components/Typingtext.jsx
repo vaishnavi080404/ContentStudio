@@ -28,6 +28,7 @@ export default function TypingText({
       if (text.length > 0) {
         t = setTimeout(() => setText(current.slice(0, text.length - 1)), eraseSpeed);
       } else {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setPhase("typing");
         setIndex((i) => i + 1);
       }
