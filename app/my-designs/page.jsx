@@ -39,7 +39,7 @@ const MyDesigns = () => {
       <Sidebar />
 
       <div className="flex-1 overflow-y-auto">
-        {/* page header — same pattern as templates page */}
+       
         <div className="px-8 pt-8 pb-6 border-b border-white/5">
           <p className="text-xs text-violet-400 font-medium tracking-widest uppercase mb-1">
             ContentStudio
@@ -54,7 +54,7 @@ const MyDesigns = () => {
 
         <div className="px-8 py-6">
           {loading ? (
-            // skeleton grid instead of a plain text loader — feels intentional, matches the glass cards below
+           
             <div className="grid grid-cols-4 gap-5">
               {Array.from({ length: 8 }).map((_, i) => (
                 <div
@@ -105,10 +105,10 @@ const MyDesigns = () => {
                       className="w-full h-full object-cover"
                     />
 
-                    {/* glass sheen across the top of the thumbnail — subtle, not a full overlay */}
+                   
                     <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none" />
 
-                    {/* hover overlay — open button, same slide-up pattern as templates page */}
+                    
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                       <button
                         onClick={(e) => {
@@ -124,7 +124,7 @@ const MyDesigns = () => {
                     </div>
                   </div>
 
-                  {/* card footer */}
+                  
                   <div className="px-4 py-3 flex items-center justify-between bg-white/[0.02]">
                     <div className="min-w-0">
                       <p className="text-sm font-medium text-neutral-200 truncate">
