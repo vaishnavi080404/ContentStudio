@@ -4,9 +4,7 @@ import { cookies } from "next/headers";
 import { uploadThumbnail } from "@/lib/storage";
 
 export async function POST(req) {
-  // wrap EVERYTHING in try/catch so we always return valid JSON,
-  // even if something inside throws — otherwise the client gets an
-  // empty response body and crashes trying to parse it
+  
   try {
     const cookieStore = await cookies();
 
@@ -41,8 +39,7 @@ export async function POST(req) {
 
     return Response.json({ url });
   } catch (err) {
-    // this is the important part — log the REAL error server-side
-    // (check your terminal running `npm run dev`, not the browser console)
+   
     console.error("Thumbnail upload route crashed:", err);
     return Response.json(
       { error: err.message || "Upload failed" },
