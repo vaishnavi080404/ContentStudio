@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 
-// common design sizes so the user doesn't have to know pixel dimensions
-// off the top of their head — manual entry is still there for anything else
+
 const PRESETS = [
   { label: "Instagram Post", w: 1080, h: 1080 },
   { label: "Instagram Story", w: 1080, h: 1920 },
@@ -47,7 +46,7 @@ export default function CustomSizeModal({ onConfirm, onCancel }) {
           ))}
         </div>
 
-        {/* manual entry */}
+        {/* user's choice  */}
         <div className="flex items-center gap-3 mb-6">
           <div className="flex-1">
             <label className="text-xs text-neutral-200 font-medium block mb-1">
