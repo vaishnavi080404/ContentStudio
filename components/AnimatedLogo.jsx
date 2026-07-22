@@ -11,7 +11,7 @@ export default function AnimatedLogo() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.2 });
 
-      // "Content" — clips in from left, like text being revealed by a cursor
+      // content — clips in from left, like text being revealed by a cursor
       tl.fromTo(
         contentRef.current,
         { clipPath: "inset(0 100% 0 0)", opacity: 1 },
@@ -22,7 +22,7 @@ export default function AnimatedLogo() {
         },
       )
 
-      // small violet dot flashes between the two words — like a cursor blink
+
       .fromTo(
         dotRef.current,
         { opacity: 0, scaleY: 0 },
@@ -31,7 +31,7 @@ export default function AnimatedLogo() {
       )
       .to(dotRef.current, { opacity: 0, duration: 0.15, delay: 0.05 })
 
-      // "Studio" slides in from left + violet color fades in
+      // studio slides in from left + violet color fades in
       .fromTo(
         studioRef.current,
         { x: -8, opacity: 0 },
@@ -39,7 +39,6 @@ export default function AnimatedLogo() {
         "-=0.1",
       )
 
-      // subtle final pulse on "Studio" — like the color settling
       .fromTo(
         studioRef.current,
         { textShadow: "0 0 12px rgba(124,92,255,0.9)" },
@@ -52,7 +51,7 @@ export default function AnimatedLogo() {
 
   return (
     <span className="font-sans text-lg font-bold tracking-[-0.02em] text-white flex items-center">
-      {/* "Content" — clipped reveal */}
+     
       <span
         ref={contentRef}
         style={{ clipPath: "inset(0 100% 0 0)", display: "inline-block" }}
@@ -60,7 +59,7 @@ export default function AnimatedLogo() {
         Content
       </span>
 
-      {/* cursor blink dot between words */}
+      
       <span
         ref={dotRef}
         style={{
@@ -76,7 +75,7 @@ export default function AnimatedLogo() {
         }}
       />
 
-      {/* "Studio" — slides in with violet glow */}
+     
       <span
         ref={studioRef}
         className="text-[#7c5cff]"
