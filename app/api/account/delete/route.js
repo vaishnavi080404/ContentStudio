@@ -14,7 +14,7 @@ export async function POST() {
     {
       cookies: {
         getAll: () => cookieStore.getAll(),
-        setAll: () => {}, // no-op — this route doesn't need to refresh/write cookies
+        setAll: () => {},
       },
     }
   );
@@ -28,15 +28,13 @@ export async function POST() {
     return Response.json({ error: "Not authenticated" }, { status: 401 });
   }
 
-  // service-role client — only ever constructed server-side, only ever used
-  // with the id we just verified above, never with a client-supplied id
+  
   const supabaseAdmin = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY
   );
 
-  // clean up owned data first — skipping this leaves orphaned rows referencing
-  // a user_id that no longer exists in auth.users
+ 
   const { error: designsError } = await supabaseAdmin
     .from("Designs")
     .delete()
