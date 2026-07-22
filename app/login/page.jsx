@@ -5,7 +5,7 @@ import { createSupabaseBrowserClient } from "@/lib/supabase";
 
 const supabase = createSupabaseBrowserClient();
 
-// stagger container for the card's children — each direct child fades/rises in sequence
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -18,7 +18,7 @@ const fieldVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 0.9, 0.3, 1] } },
 };
 
-// error shakes horizontally once instead of just fading in — reads as "wrong", not just "new text"
+
 const errorVariants = {
   hidden: { opacity: 0, x: 0 },
   visible: {
@@ -69,7 +69,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0d0d14] relative overflow-hidden">
-      {/* ambient glow blobs — slow drifting, purely decorative, matches the hero's dark/violet language */}
+     
       <motion.div
         className="absolute w-[420px] h-[420px] rounded-full bg-violet-600/20 blur-[100px]"
         style={{ top: "-10%", left: "-8%" }}
