@@ -8,7 +8,6 @@ import ShapesBackground from "./ShapesBackground";
 
 const HEADING = "The design tool";
 
-// react-type-animation's sequence format: string, then ms to hold, repeating
 const SUB_PHRASES = [
   "that colors on the fly.",
   2000,
@@ -20,8 +19,7 @@ const SUB_PHRASES = [
   2000,
 ];
 
-// each item knows where to land on the paper (percent coords) and what it looks like
-// Replace ITEMS in EditorCanvas.jsx with these:
+
 const ITEMS = [
   {
     id: "colorPalette",
@@ -106,7 +104,7 @@ const ITEMS = [
 
 const TOOLS = [
   { icon: "T", id: "text" },
-  { icon: "◐", id: "badge" }, // "shape" tool maps to the badge item
+  { icon: "◐", id: "badge" }, 
   { icon: "▢", id: "image" },
   { icon: "⬢", id: "cta" },
   { icon: "◉", id: "palette" },
@@ -114,7 +112,7 @@ const TOOLS = [
 
 export default function EditorCanvas() {
   const [visibleItems, setVisibleItems] = useState([]);
-  const [activeTool, setActiveTool] = useState(null); // which sidebar icon is "in use" right now
+  const [activeTool, setActiveTool] = useState(null); 
   const [readyForItems, setReadyForItems] = useState(false);
 
   // wait for the paper + toolbar entrance to roughly finish, then start the recurring item loop
@@ -123,7 +121,7 @@ export default function EditorCanvas() {
     return () => clearTimeout(t);
   }, []);
 
-  // item loop — starts once, then repeats forever: drop items in one at a time, hold, clear, repeat
+  // item loop — starts once, then repeat
   useEffect(() => {
     if (!readyForItems) return;
     let cancelled = false;
@@ -140,7 +138,7 @@ export default function EditorCanvas() {
         }, i * 700);
       });
 
-      const holdTime = 2000; // how long items sit before the next pass clears them
+      const holdTime = 2000; 
       const totalTime = ITEMS.length * 700 + holdTime;
       setTimeout(() => {
         if (!cancelled) runLoop();
@@ -164,9 +162,7 @@ export default function EditorCanvas() {
         </div>
       </ClientOnly>
       <div className="absolute inset-0 bg-neutral-950/35" />
-
-      {/* centering wrapper — lets the paper's entrance animation own its transform without
-          fighting a separate -50%/-50% centering transform */}
+}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, rotateX: 24, rotateY: -24, x: -60, y: 90 }}
@@ -175,7 +171,7 @@ export default function EditorCanvas() {
           style={{ transformPerspective: 1400 }}
           className="relative left-12 top-10 h-[78%] w-[72%] overflow-hidden rounded-2xl bg-white shadow-[0_40px_80px_-20px_rgba(124,92,255,0.35)]"
         >
-          {/* top browser-style bar — fills the dead space at the top of the canvas */}
+         
           <div className="flex items-center gap-2 border-b border-neutral-200/70 bg-white/70 px-4 py-2 backdrop-blur">
             editor
             <div className="mx-auto rounded bg-neutral-100 px-2 py-0.5 text-[10px] text-neutral-500">
@@ -201,14 +197,13 @@ export default function EditorCanvas() {
                 />
               </h2>
 
-              {/* body placeholder lines — gives the canvas actual content, not just a heading */}
+       
               <div className="mt-4 space-y-1.5">
                 <div className="h-1.5 w-[70%] rounded-full bg-neutral-200" />
                 <div className="h-1.5 w-[55%] rounded-full bg-neutral-200" />
                 <div className="h-1.5 w-[45%] rounded-full bg-neutral-200" />
               </div>
 
-              {/* Tailwind's built-in animate-pulse — no custom keyframes needed */}
               <div className="mt-3 flex items-center gap-1.5 text-xs text-neutral-400">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#7c5cff]" />
                 building live
@@ -234,7 +229,7 @@ export default function EditorCanvas() {
         </motion.div>
       </div>
 
-      {/* toolbar — left side, gradient + layered shadow for a raised 3D feel, bounces in */}
+      
       <motion.div
         initial={{ opacity: 0, y: -140 }}
         animate={{ opacity: 1, y: 0 }}
